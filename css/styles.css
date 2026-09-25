@@ -11,17 +11,7 @@
   --font:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --red:#FF5A6E; --red-deep:#FF8A98; --red-soft:#3A1419;
-    --ink:#E9EEF2; --slate:#B4C0CA; --muted:#98A5B0;
-    --line:#2C3843; --mist:#1B252E; --paper:#131C24; --canvas:#0E151B;
-    --green:#5CD69E; --green-soft:#12301F; --amber-soft:#33280F; --amber-ink:#F2C66D;
-    --focus:#7FB0FF; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.3);
-    color-scheme:dark;
-  }
+  color-scheme:light only;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
@@ -65,7 +55,6 @@ button,input{font:inherit;color:inherit}
 .btn-red:hover{background:var(--red-deep)}
 .btn-outline{background:var(--paper);border-color:var(--line);color:var(--ink)}
 .btn-outline:hover{border-color:var(--slate)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-red{color:#08110c}}
 /* Search / distance form */
 .btn[disabled]{opacity:.6;cursor:progress}
 
@@ -120,6 +109,7 @@ button,input{font:inherit;color:inherit}
 .f-er a{color:#fff;font-weight:700}
 .site-footer :focus-visible{outline-color:#fff}
 .f-bottom{background:#5A0000;color:#fff;font-size:.88rem}
+.f-bottom a{color:#fff;font-weight:700}
 .f-bottom .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:14px;padding-bottom:16px}
 .to-top{position:absolute;right:20px;bottom:64px;width:44px;height:44px;display:grid;place-items:center;background:#1F4FD1;color:#fff;border-radius:4px}
 @media (max-width:960px){.f-main{grid-template-columns:1fr;gap:0}}
@@ -129,7 +119,6 @@ button,input{font:inherit;color:inherit}
 
 /* Hero */
 .hf-hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#F5E6EC 0%,#EEEFF2 45%,#E9EBEE 100%);min-height:540px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hf-hero{background:linear-gradient(120deg,#2A1A20,#1B222A)}}
 .hf-hero::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(ellipse at -10% 60%,transparent 0 38px,rgba(255,255,255,.45) 39px 40px);opacity:.6;pointer-events:none}
 .hf-arc{position:absolute;top:0;right:0;bottom:0;width:62%}
 .hf-arc > div{position:absolute;inset:0}
@@ -143,9 +132,9 @@ button,input{font:inherit;color:inherit}
 .hf-hero .b-addr{margin-top:16px;font-size:1.15rem;color:var(--slate);max-width:36ch}
 .b-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .b-actions .btn{min-height:54px;font-size:1.05rem;border-radius:6px}
-@media (max-width:900px){
+@media (max-width:1080px){
   .hf-hero{min-height:0}
-  .hf-arc{position:relative;width:100%;height:300px}
+  .hf-arc{position:relative;width:100%;height:clamp(240px,40vw,380px)}
   .hf-arc .a1{clip-path:ellipse(120% 100% at 100% 100%)}
   .hf-arc .a2{clip-path:ellipse(116% 97% at 100% 100%)}
   .hf-arc .a3{clip-path:ellipse(112% 94% at 100% 100%)}
@@ -158,7 +147,6 @@ button,input{font:inherit;color:inherit}
 .band{background:var(--red);color:#fff;text-align:center;padding:16px 20px}
 .band h2{font-family:var(--display);font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:800;text-transform:uppercase;letter-spacing:.01em}
 .band-body{background:#F2F2F2;padding:36px 20px 44px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .band-body{background:var(--mist)}:root:not([data-theme="light"]) .band{background:#5A0000}}
 
 /* Distance checker */
 .dist-card{max-width:760px;margin:0 auto;background:var(--paper);border-radius:6px;padding:24px;box-shadow:var(--shadow)}
@@ -179,7 +167,6 @@ button,input{font:inherit;color:inherit}
 .circles.three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:980px;margin-left:auto;margin-right:auto}
 .circle-item{display:flex;flex-direction:column;align-items:center;text-align:center}
 .circle{width:176px;height:176px;border-radius:50%;background:#F2F2F2;display:grid;place-items:center;color:var(--red);margin-bottom:20px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .circle{background:var(--mist)}}
 .circle svg{width:72px;height:72px}
 .circle-item h3{font-size:1.3rem;font-weight:800;text-transform:uppercase;color:var(--red);line-height:1.2}
 .circle-item p{margin-top:12px;color:var(--ink);max-width:30ch}
